@@ -61,4 +61,5 @@ public class AuthServiceImpl implements AuthService{
         var data = usersRepository.save(userMapper);
         return ResponseHandler.generateResponseSuccess(data);
     }
+
 }
