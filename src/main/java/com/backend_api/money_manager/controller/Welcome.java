@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class Welcome {
 
-    @GetMapping("")
+    @GetMapping("/api/v1/user")
     public ModelAndView welcome(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("welcome/index");
