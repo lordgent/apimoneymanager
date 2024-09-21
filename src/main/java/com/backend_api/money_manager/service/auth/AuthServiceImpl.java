@@ -3,6 +3,7 @@ package com.backend_api.money_manager.service.auth;
 import com.backend_api.money_manager.dto.request.users.LoginRequest;
 import com.backend_api.money_manager.dto.request.users.RegisterRequest;
 import com.backend_api.money_manager.dto.response.users.SignResponse;
+import com.backend_api.money_manager.entity.AccountStatus;
 import com.backend_api.money_manager.entity.Role;
 import com.backend_api.money_manager.entity.Users;
 import com.backend_api.money_manager.exception.ResponseHandler;
@@ -58,6 +59,7 @@ public class AuthServiceImpl implements AuthService{
         userMapper.setRole(Role.USER);
         userMapper.setFullName(request.getFullName());
         userMapper.setPassword(passwordEncoder.encode(request.getPassword()));
+        userMapper.setAccountStatus(AccountStatus.UNVERIFIED);
         var data = usersRepository.save(userMapper);
         return ResponseHandler.generateResponseSuccess(data);
     }
